@@ -17,7 +17,7 @@ const Tab = createBottomTabNavigator();
 const BottomTabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Search"
+      initialRouteName="Profiles"
       screenOptions={{
         tabBarActiveTintColor: '#4287f5',
         headerShown: false,

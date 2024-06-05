@@ -43,6 +43,7 @@ const Search = () => {
             paddingHorizontal:PADDING.horizontal,
             backgroundColor:'white',
             marginHorizontal:12,
+            elevation: 5,
           }}
         >
           <SafeAreaView style={searchStyles.fieldContain}>

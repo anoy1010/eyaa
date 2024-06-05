@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native'
 import { COLOR, PADDING, TEXT_SIZE } from '../outils/const';
 
 
-export const searchStyles = StyleSheet.create({
+const searchStyles = StyleSheet.create({
     Container: {
         flex:1,
         alignItems:'center',
@@ -88,7 +88,6 @@ export const searchStyles = StyleSheet.create({
         color:'white',
       }
 });
-
 
 
 
