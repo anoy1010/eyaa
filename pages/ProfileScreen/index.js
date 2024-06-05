@@ -16,7 +16,8 @@ const Profiles = () => {
         tabBarLabelStyle: {
           fontSize: 16,
           color: COLOR.grayColor,
-          fontWeight: 900,
+          fontFamily:'Poppins_500Medium',
+          textTransform:'capitalize',
         },
         tabBarStyle: {  },
       }}
