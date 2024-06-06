@@ -10,16 +10,18 @@ const Tab = createMaterialTopTabNavigator();
 const Profiles = () => {
   return (
     <Tab.Navigator
-      style={{ paddingTop: 24 }}
+      style={{ paddingTop: 24, }}
       initialRouteName="Account"
       screenOptions={{
         tabBarLabelStyle: {
           fontSize: 16,
-          color: COLOR.grayColor,
+          color: COLOR.lessGreenColor,
           fontFamily:'Poppins_500Medium',
           textTransform:'capitalize',
         },
-        tabBarStyle: {  },
+        tabBarIndicatorStyle: {
+          backgroundColor: COLOR.lessGreenColor
+        },
       }}
     >
       <Tab.Screen name="A propos de vous" component={About} />
