@@ -11,7 +11,7 @@ const Profiles = () => {
   return (
     <Tab.Navigator
       style={{ paddingTop: 24 }}
-      initialRouteName="About"
+      initialRouteName="Account"
       screenOptions={{
         tabBarLabelStyle: {
           fontSize: 16,

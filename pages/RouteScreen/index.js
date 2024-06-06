@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { COLOR, PADDING, TEXT_SIZE } from "../../outils/const";
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons'; 
 
 const RouteScreen = () => {
   const [selectedButton, setSelectedButton] = useState(null);
