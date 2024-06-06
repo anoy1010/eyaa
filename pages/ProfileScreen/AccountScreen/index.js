@@ -36,7 +36,6 @@ const Account = () => {
         </TouchableOpacity>
         <TouchableOpacity style={accountStyles.accountTouch}>
           <Text style={accountStyles.accountText}>Deconnexion</Text>
-          <AntDesignIcon name='right' size={20} color="#898989'"/>
         </TouchableOpacity>
       </View>
     </View>
