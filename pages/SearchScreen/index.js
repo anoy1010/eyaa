@@ -29,11 +29,11 @@ const Search = () => {
           Un vaste choix de trajets à petit prix
         </Text>
       </View>
-      <View style={searchStyles.inputContainer}>
-        <ImageBackground
+      <ImageBackground
           source={require("./../../assets/im2.jpg")}
           style={searchStyles.imageBackground}
         ></ImageBackground>
+      <View style={searchStyles.inputContainer}>
         <View
           style={{
             width: "100%",
@@ -44,6 +44,7 @@ const Search = () => {
             backgroundColor:'white',
             marginHorizontal:12,
             elevation: 5,
+            borderRadius:30,
           }}
         >
           <SafeAreaView style={searchStyles.fieldContain}>

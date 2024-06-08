@@ -15,7 +15,6 @@ const accountStyles = StyleSheet.create({
         padding:10,
         marginBottom:20,
         borderRadius:15,
-       
         justifyContent:'space-between',
         
          

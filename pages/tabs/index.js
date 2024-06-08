@@ -17,7 +17,7 @@ const Tab = createBottomTabNavigator();
 const BottomTabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Profiles"
+      initialRouteName="Search"
       screenOptions={{
         tabBarActiveTintColor: '#4287f5',
         headerShown: false,
@@ -34,7 +34,7 @@ const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Publication"
+        name="Publish"
         component={Publish}
         options={{
           tabBarLabel: 'Publier',

@@ -66,6 +66,7 @@ const searchStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems:'flex-start',
         width:'100%',
+        bottom:80,
       },
       imageBackground: {
         width: '100%',
