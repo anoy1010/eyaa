@@ -25,19 +25,12 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      [
-        "expo-font",
-        {
-          "fonts": [
-            "./assets/fonts/Inter-Black.otf"
-          ]
-        }
-      ]
     ],
     "extra": {
       "eas": {
         "projectId": "6cd9bd03-66ae-4f3f-a96b-6e341df06d14"
       }
     }
+    
   }
 }
