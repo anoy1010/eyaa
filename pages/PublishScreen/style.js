@@ -7,8 +7,6 @@ const publishStyles = StyleSheet.create({
     paddingHorizontal: PADDING.horizontal,
     width:"100%",
     display:'flex',
-    justifyContent:"space-around",
-    alignItems:'flex-start',
     paddingVertical:10,
     flexDirection:"column",
     

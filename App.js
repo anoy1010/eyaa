@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useCallback} from "react";
 import { View, Text } from "react-native";
 import Routes from "./routes";
 import { SplashScreen } from 'expo-splash-screen';

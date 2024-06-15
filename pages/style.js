@@ -5,10 +5,12 @@ import { COLOR, PADDING, TEXT_SIZE } from '../outils/const';
 const searchStyles = StyleSheet.create({
     Container: {
         flex:1,
+        flexDirection:"column",
         alignItems:'center',
         paddingHorizontal: PADDING.horizontal,
         paddingVertical:PADDING.vertical,
-        backgroundColor:'white',    
+        backgroundColor:'white',  
+
     },
     title: {
         paddingVertical:32,
@@ -37,37 +39,46 @@ const searchStyles = StyleSheet.create({
     image: {
         resizeMode: 'cover', // Assurez-vous que l'image couvre toute la vue
       },
+      inputContainer: {
+        display:"flex",
+        flexDirection:'column',
+        justifyContent: 'center',
+        alignItems:'center',
+        width:'100%',
+        height:100,
+        bottom: 90,
+        backgroundColor:'white',
+        elevation: 5,
+        borderTopLeftRadius:30,
+            borderTopRightRadius:30,
+      },
       fieldContain: {
         width:'100%',
+        paddingHorizontal:24,
         display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
         flexDirection:'row',
-        backgroundColor: 'white',
-        alignItems: 'center',
-        justifyContent: 'center',
         borderBottomWidth: 1,
         borderBottomColor: 'black',
-        paddingVertical: 10,
-        paddingHorizontal: 5,
-        marginHorizontal: 20,
         columnGap:8,
-        
+        backgroundColor:'white',
+        borderTopLeftRadius:30,
+            borderTopRightRadius:30,
+
+
+      
       },
     input:{
         flex: 1,
         fontFamily: 'Poppins_600SemiBold',
-        fontSize: 20,
+        fontSize: 19,
         marginLeft: 10,
         color: 'black',
-        
+        backgroundColor:'white'
 
     },
-    inputContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems:'flex-start',
-        width:'100%',
-        bottom:80,
-      },
+    
       imageBackground: {
         width: '100%',
         height: 300, // Vous pouvez ajuster cette valeur selon vos besoins
@@ -78,9 +89,8 @@ const searchStyles = StyleSheet.create({
         width:'100%',
         padding:10,
         backgroundColor:COLOR.orangeColor,
-        borderRadius:30,
-        marginVertical:8,
-        padding:10,
+        borderBottomLeftRadius:30,
+        borderBottomRightRadius:30,
 
       },
       buttonText: {

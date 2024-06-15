@@ -10,6 +10,7 @@ import Publish from '../PublishScreen';
 import RouteScreen from '../RouteScreen';
 import Message from '../MessageScreen';
 import Profiles from '../ProfileScreen';
+import { COLOR } from '../../outils/const';
 
 
 const Tab = createBottomTabNavigator();
@@ -24,6 +25,7 @@ const BottomTabs = () => {
       }}
     >
       <Tab.Screen
+      
         name="Search"
         component={Search}
         options={{
@@ -34,9 +36,23 @@ const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Publish"
+        name="Publier un trajet"
         component={Publish}
         options={{
+          headerTitleAlign: 'center',
+          headerTitleStyle:{ 
+            fontSize: 24,
+            color:COLOR.orangeColor },
+          headerLeft: () => (
+            <MaterialIcons
+              name="arrow-back"
+              size={24}
+              color={COLOR.orangeColor}
+              style={{ marginLeft: 10 }}
+             
+            />
+          ),
+          headerShown: true, // Afficher le titre de la page // Titre de la page
           tabBarLabel: 'Publier',
           tabBarIcon: ({ color, size }) => (
             <MaterialIcons name="add-circle-outline" color={color} size={size} />
@@ -48,6 +64,7 @@ const BottomTabs = () => {
         name="Route"
         component={RouteScreen}
         options={{
+          
           tabBarLabel: 'Trajet',
           tabBarIcon: ({ color, size }) => (
             <MaterialIcons name="route" color={color} size={size} />

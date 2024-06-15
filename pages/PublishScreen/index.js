@@ -9,10 +9,7 @@ const Publish = () => {
     <View
       style={{
         flex: 1,
-        justifyContent: "",
-        alignItems: "flex-start",
         backgroundColor: "white",
-        paddingTop:100,
       }}
     >
       <View style={publishStyles.container}>

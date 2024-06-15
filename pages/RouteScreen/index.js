@@ -15,7 +15,7 @@ const RouteScreen = () => {
       <View style={styles.container}>
         <View>
           <Image
-            source={require("./../../assets/traject.jpg")}
+            source={require("./../../assets/traject.jpeg")}
             style={styles.image}
           />
         </View>
