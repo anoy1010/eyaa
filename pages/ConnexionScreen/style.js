@@ -8,17 +8,14 @@ const ConnexionStyles = StyleSheet.create ({
         display: "",
         justifyContent: "space-between",
         alignItems: "center",
-        
-        paddingVertical: PADDING.vertical,
         backgroundColor:"white"
       },
       viewimage: {
         paddingHorizontal: PADDING.horizontal,
-        paddingVertical: 32,
       },
       viewImg: {
-        width: 200,
-        height: 250,
+        width: 300,
+        height: 350,
         borderRadius:30,
         backgroundColor: '#fff',
         justifyContent: 'center',
@@ -32,12 +29,12 @@ const ConnexionStyles = StyleSheet.create ({
         elevation: 20,
       },
       logo: {
-        width: 100,
-        height: 100,
+        width: 200,
+        height: 200,
       },
       img: {
-        width: 200,
-        height: 250,
+        width: 300,
+        height: 350,
         borderRadius: 30,
         shadowColor: "#babecc",
         shadowOpacity: 8,
@@ -48,15 +45,46 @@ const ConnexionStyles = StyleSheet.create ({
       },
       text: {
         textAlign:'center',
-        paddingVertical:PADDING.vertical,
+        paddingVertical:8,
         fontFamily: "Poppins_600SemiBold",
         fontSize: 32,
       },
-      button: { 
+      textRegister: {
+        textAlign:'center', 
+        fontFamily: "Poppins_600SemiBold",
+        fontSize: 24,
+        color:'white'
+      },
+      textSign: {
+        textAlign:'center', 
+        fontFamily: "Poppins_600SemiBold",
+        fontSize: 24,
+        color:COLOR.orangeColor,
+      },
+     button :{
+        rowGap:24,
+        paddingVertical:PADDING.vertical,
+     }, 
+      buttonRegister: { 
         alignItems:"center",
         justifyContent:'center',
-        borderRadius:100,
+        borderRadius:30,
+        width:300,
         backgroundColor: COLOR.orangeColor,
+      },
+      buttonSign: { 
+        alignItems:"center",
+        justifyContent:'center',
+        borderRadius:30,
+        width:300,
+        backgroundColor: COLOR.lessGRayColor,
+        borderRadius: 30,
+        shadowColor: "#babecc",
+        shadowOpacity: 8,
+        elevation: 20,
+        shadowOffset: { width: 10, height: 10 },
+        shadowOpacity: 0.2,
+        shadowRadius: 20,
       },
      
 })

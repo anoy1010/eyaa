@@ -20,7 +20,8 @@ const styles =  StyleSheet.create({
         borderRadius:100,
         backgroundColor: COLOR.orangeColor,
         position:"absolute",
-        left:120,
+        bottom:20,
+        right:20,
       },
 })
 

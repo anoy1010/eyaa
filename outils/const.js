@@ -4,7 +4,7 @@ export const COLOR= {
     lessBlueColor: '#6a9198',
     blackcolor: '#040404',
     grayColor: '#898989',
-    lessGRayColor:'#F8F9FA',
+    lessGrayColor:'#D3D3D3',
     lessGreenColor: '#6b9195'
 
 };

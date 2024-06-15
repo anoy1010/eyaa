@@ -12,34 +12,3 @@ export default function HomeScreen(params) {
     </View>
   )
 }
-
-
-
-function Screen1 () {
-  return (
-    <View style={HomeStyles.contain}>
-      <View style={HomeStyles.viewimage}>
-        <Image 
-          source={require("./../../assets/logo.png")}
-          style={HomeStyles.logo}
-        />
-      </View>
-      <View style={HomeStyles.viewImg}> 
-      <Image 
-          source={require("./../../assets/1navigation.jpg")}
-          style={HomeStyles.img}
-        />
-      </View>
-      <View>
-        <Text style={HomeStyles.text}>Se deplacer à petit prix</Text>
-      </View>
-      <View>
-        <View>
-
-        </View>
-        <ButtonNext/>
-      </View>
-    </View>
-  )
-  
-}
