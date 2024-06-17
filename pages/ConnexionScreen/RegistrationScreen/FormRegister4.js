@@ -16,12 +16,12 @@ import AntDesignIcon from "react-native-vector-icons/AntDesign";
 
 const { width } = Dimensions.get('window');
 
-const FormRegister3 = () => {
+const FormRegister4 = () => {
 
     const navigation = useNavigation();
 
     const onNextPage = () => {
-        navigation.navigate('StepRegister4'); // Remplacez 'NextScreen' par l'écran approprié
+        navigation.navigate('Bottoms'); // Remplacez 'NextScreen' par l'écran approprié
       };
     const [text, setText] = useState('');
   const [checked, setChecked] = useState(false);
@@ -31,7 +31,7 @@ const FormRegister3 = () => {
       <View>
         <View style={FormStyle.contain}>
       <View style={{ width: "100%" }}>
-        <Text style={FormStyle.titre2}>Comment préférez-vous  qu'on vous appellez ? </Text>
+        <Text style={FormStyle.titre2}>Confirmer votre numéro de téléphone </Text>
       </View>
       <View style={{ paddingVertical:PADDING.vertical, rowGap:24,}}>
       <View style={{width:"100%", rowGap:24,}}>
@@ -45,49 +45,31 @@ const FormRegister3 = () => {
             }}
           >
            
-            <Text style={RegistrationStyle.pathText}>
-              Monsieur
-            </Text>
+          <View style={FormStyle.groupInput}>
+          <TextInput
+            style={FormStyle.input}
+            onChangeText={setText}
+            value={text}
+            placeholder="+225 0707070707 "
+            keyboardType="numeric"
+          />
+        </View>
           </View>
           <AntDesignIcon name="right" size={24} color="#898989" />
         </TouchableOpacity>
       </View>
       <View style={{width:"100%", rowGap:24,}}>
       <TouchableOpacity style={RegistrationStyle.path}>
-          <View
-            style={{
-              flexDirection: "row",
-              columnGap: 12,
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
-           
-            <Text style={RegistrationStyle.pathText}>
-              Madame
+            <Text style={{
+                fontFamily:"Poppins_500Medium",
+                fontSize:12,
+                color:COLOR.lessGreenColor,
+            }}>
+                je le ferai plus tard             
             </Text>
-          </View>
-          <AntDesignIcon name="right" size={24} color="#898989" />
         </TouchableOpacity>
       </View>
-      <View style={{width:"100%", rowGap:24,}}>
-      <TouchableOpacity style={RegistrationStyle.path}>
-          <View
-            style={{
-              flexDirection: "row",
-              columnGap: 12,
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
-           
-            <Text style={RegistrationStyle.pathText}>
-              je préfère ne pas le dire
-            </Text>
-          </View>
-          <AntDesignIcon name="right" size={24} color="#898989" />
-        </TouchableOpacity>
-      </View>
+      
       </View>
     </View>		
     <ButtonNext onPress={onNextPage}/>		
@@ -95,4 +77,4 @@ const FormRegister3 = () => {
     );
   };
 
-export default FormRegister3;
+export default FormRegister4;

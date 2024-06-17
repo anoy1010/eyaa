@@ -15,10 +15,17 @@ import { Button } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { PADDING } from "../../outils/const";
+import { useNavigation } from "@react-navigation/native";
 
 const Search = () => {
+  const navigation = useNavigation();
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
+
+
+  const onNextPage = () => {
+    navigation.navigate('SearchElement'); // Remplacez 'NextScreen' par l'écran approprié
+  };
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -114,7 +121,7 @@ const Search = () => {
               placeholderTextColor="black"
             />
           </SafeAreaView>
-          <TouchableOpacity style={searchStyles.buttonSearch}>
+          <TouchableOpacity style={searchStyles.buttonSearch} onPress={onNextPage}>
           <Text style={searchStyles.buttonText}>Rechercher</Text>
         </TouchableOpacity>
         </View>

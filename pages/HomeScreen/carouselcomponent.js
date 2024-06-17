@@ -84,8 +84,8 @@ const CarouselComponent = () => {
       </ScrollView>
       <View style={HomeStyles.Control}>
       {renderDots()}
-      <ButtonNext onPress={onNextPress} style={HomeStyles.ControlPosition}/>
       </View>
+      <ButtonNext onPress={onNextPress} style={HomeStyles.ControlPosition}/>
     </View>
   );
 };
