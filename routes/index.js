@@ -43,7 +43,7 @@ const Routes = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="SearchElement"
+        initialRouteName="Bottoms"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Bottoms" component={BottomTabs} />

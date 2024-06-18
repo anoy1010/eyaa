@@ -11,6 +11,7 @@ import RouteScreen from '../RouteScreen';
 import Message from '../MessageScreen';
 import Profiles from '../ProfileScreen';
 import { COLOR } from '../../outils/const';
+import SearchElement from '../SearchScreen/SearchElement';
 
 
 const Tab = createBottomTabNavigator();
