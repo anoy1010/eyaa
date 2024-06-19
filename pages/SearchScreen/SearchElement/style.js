@@ -5,7 +5,9 @@ import { TabView } from "react-native-tab-view";
 
 const SearchElementStyles = StyleSheet.create({
   contain: {
-    flex: 1,
+    flex:1,
+   
+    paddingVertical:PADDING.vertical,
     justifyContent: "center",
     rowGap:24,
     alignItems: "center",
