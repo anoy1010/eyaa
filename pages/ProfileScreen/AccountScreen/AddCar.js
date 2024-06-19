@@ -10,7 +10,7 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useRef, useState } from "react";
-import { launchImageLibrary } from 'react-native-image-picker';
+import { launchImageLibrary } from "react-native-image-picker";
 import ButtonNext from "../../../comps/buttonNext";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useNavigation } from "@react-navigation/native";
@@ -24,6 +24,23 @@ const AddCar = () => {
   const animatedValue = useRef(new Animated.Value(0)).current;
   const navigation = useNavigation();
   const [images, setImages] = useState([]);
+
+  const handleImagePick = async () => {
+    try {
+      const result = await launchImageLibrary({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      });
+      if (result.didCancel) {
+        console.log("Annulation de la sélection d'image");
+      } else if (result.error) {
+        console.log("Erreur lors de la sélection d'image:", result.error);
+      } else {
+        setImages([...images, result.assets[0].uri]); // Add image URI to the state
+      }
+    } catch (error) {
+      console.log("Erreur lors de la sélection d'image:", error);
+    }
+  };
 
   const onScroll = (event) => {
     const scrollPosition = event.nativeEvent.contentOffset.x;
@@ -127,7 +144,6 @@ const AddCar = () => {
                   flexDirection: "row",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  
                 }}
               >
                 <View
@@ -155,7 +171,6 @@ const AddCar = () => {
                   flexDirection: "row",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  
                 }}
               >
                 <View
@@ -183,7 +198,6 @@ const AddCar = () => {
                   flexDirection: "row",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  
                 }}
               >
                 <View
@@ -211,7 +225,6 @@ const AddCar = () => {
                   flexDirection: "row",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  
                 }}
               >
                 <View
@@ -239,7 +252,6 @@ const AddCar = () => {
                   flexDirection: "row",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  
                 }}
               >
                 <View
@@ -268,15 +280,34 @@ const AddCar = () => {
 
         {/* Quatrième section: titre, importation d'images et bouton enregistrer */}
         <View style={styles.page}>
-        <Text style={styles.sectionTitle1}>
+          <Text style={styles.sectionTitle1}>
             Ajouter une photo de votre vehicule ?
           </Text>
 
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Importer des images</Text>
-            <TouchableOpacity style={styles.uploadButton}>
-              <Text style={styles.uploadButtonText}>Importer</Text>
-            </TouchableOpacity>
+          <View style={styles.section1}>
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <View style={styles.imageContainer}>
+                {images.map((imageUri, index) => (
+                  <Image
+                    key={index}
+                    source={{ uri: imageUri }}
+                    style={styles.image}
+                  />
+                ))}
+              </View>
+              <TouchableOpacity
+                style={{ color: COLOR.orangeColor }}
+                onPress={handleImagePick}
+              >
+                <Text style={styles.sectionTitle}>Importer des images</Text>
+              </TouchableOpacity>
+            </View>
+
             <TouchableOpacity style={styles.saveButton}>
               <Text style={styles.saveButtonText}>Enregistrer</Text>
             </TouchableOpacity>
@@ -284,9 +315,9 @@ const AddCar = () => {
         </View>
       </ScrollView>
 
-      <View style={styles.buttonNext}>
+      {activeIndex !== 3 && <View style={styles.buttonNext}>
         <ButtonNext onPress={onNextPress} />
-      </View>
+      </View>}
     </View>
   );
 };
@@ -307,10 +338,18 @@ const styles = StyleSheet.create({
   section: {
     marginTop: 20,
     paddingHorizontal: 20,
+    width: "100%",
+  },
+  section1: {
+    flex: 1,
+    marginTop: 20,
+    paddingHorizontal: 20,
+    width: "100%",
+    justifyContent: "space-between",
   },
   textcolor: {
     fontFamily: "Poppins_600SemiBold",
-    color:COLOR.lessGreenColor,
+    color: COLOR.lessGreenColor,
   },
   sectionTitle1: {
     fontSize: 24,
@@ -328,6 +367,14 @@ const styles = StyleSheet.create({
     color: COLOR.orangeColor,
     marginBottom: 10,
     fontFamily: "Poppins_600SemiBold",
+  },
+  imageContainer: {
+    width: 200,
+    height: 200,
+    backgroundColor: COLOR.lessGrayColor,
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
   },
   inputContainer: {
     flexDirection: "row",
@@ -350,7 +397,7 @@ const styles = StyleSheet.create({
     color: COLOR.lessGreenColor,
   },
   colorContainer: {
-    width:"100%",
+    width: "100%",
     rowGap: 24,
     flexDirection: "column",
     justifyContent: "space-between",

@@ -13,6 +13,12 @@ const Account = () => {
   const onNextPassword = () => {
     navigation.navigate('Password'); // Remplacez 'NextScreen' par l'écran approprié
   };
+  const onNextPayment = () => {
+    navigation.navigate('Payment'); // Remplacez 'NextScreen' par l'écran approprié
+  };
+  const onNextBalance = () => {
+    navigation.navigate('Balance'); // Remplacez 'NextScreen' par l'écran approprié
+  };
   const onNextBecomeDriver = () => {
     navigation.navigate('BecomeDriver'); // Remplacez 'NextScreen' par l'écran approprié
   };
@@ -23,11 +29,11 @@ const Account = () => {
           <Text style={accountStyles.accountText}>Mots de passe</Text>
           <AntDesignIcon name='right' size={20} color="#898989'"/>
         </TouchableOpacity>
-        <TouchableOpacity style={accountStyles.accountTouch}>
+        <TouchableOpacity style={accountStyles.accountTouch} onPress={onNextPayment}>
           <Text style={accountStyles.accountText}>Mode de paiement</Text>
           <AntDesignIcon name='right' size={20} color="#898989'"/>
         </TouchableOpacity>
-        <TouchableOpacity style={accountStyles.accountTouch}>
+        <TouchableOpacity style={accountStyles.accountTouch} onPress={onNextBalance}>
           <Text style={accountStyles.accountText}>Mon solde</Text>
           <AntDesignIcon name='right' size={20} color="#898989'"/>
         </TouchableOpacity>

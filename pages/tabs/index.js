@@ -74,13 +74,39 @@ const SettingStack =() => {
   };
   return(
 <Stack.Navigator 
-    initialRouteName="BecomeDriver"
+    initialRouteName="Payment"
     screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name="Profile" component={Profiles} />
       <Stack.Screen name="Password" component={Password} />
-      <Stack.Screen name="Payment" component={PaymentMethod} />
-      <Stack.Screen name="Balance" component={Balance} />
+      <Stack.Screen 
+      name="Payment" 
+      component={PaymentMethod} 
+      options={{
+        headerShown: true,
+        headerTitle: "Mode de paiement", 
+        headerTitleAlign: "center",
+        headerTitleStyle: {
+          fontFamily:"Poppins_600SemiBold",
+          fontSize: 24,
+          color: COLOR.orangeColor,
+        },
+        headerLeft: () => <BackIcon />,
+      }}
+      
+      />
+      <Stack.Screen name="Balance" component={Balance}
+      options={{
+        headerShown: true,
+        headerTitle: "Mon solde", 
+        headerTitleAlign: "center",
+        headerTitleStyle: {
+          fontFamily:"Poppins_600SemiBold",
+          fontSize: 24,
+          color: COLOR.orangeColor,
+        },
+        headerLeft: () => <BackIcon />,
+      }} />
       <Stack.Screen name="publishRide" component={PublishRide} />
       <Stack.Screen 
       name="AddCar" 
