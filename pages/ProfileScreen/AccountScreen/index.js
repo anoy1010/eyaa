@@ -3,14 +3,23 @@ import React from 'react'
 import accountStyles from './styles'
 import AntDesignIcon from 'react-native-vector-icons/AntDesign'
 import { COLOR } from '../../../outils/const'
+import { useNavigation } from "@react-navigation/native";
+
 
 
 
 const Account = () => {
+  const navigation = useNavigation();
+  const onNextPassword = () => {
+    navigation.navigate('Password'); // Remplacez 'NextScreen' par l'écran approprié
+  };
+  const onNextBecomeDriver = () => {
+    navigation.navigate('BecomeDriver'); // Remplacez 'NextScreen' par l'écran approprié
+  };
   return (
     <View style={{ flex:1, justifyContent:'flex-start', alignItems:'center', backgroundColor:'white',}}>
       <View style={accountStyles.Container}>
-        <TouchableOpacity style={accountStyles.accountTouch}>
+        <TouchableOpacity style={accountStyles.accountTouch} onPress={onNextPassword}>
           <Text style={accountStyles.accountText}>Mots de passe</Text>
           <AntDesignIcon name='right' size={20} color="#898989'"/>
         </TouchableOpacity>
@@ -26,7 +35,7 @@ const Account = () => {
           <Text style={accountStyles.accountText}>Mes tajets publiés</Text>
           <AntDesignIcon name='right' size={20} color="#898989'"/>
         </TouchableOpacity>
-        <TouchableOpacity style={accountStyles.accountTouch}>
+        <TouchableOpacity style={accountStyles.accountTouch} onPress={onNextBecomeDriver}>
           <Text style={accountStyles.accountText}>Devenir Chauffeur</Text>
           <AntDesignIcon name='right' size={20} color="#898989'"/>
         </TouchableOpacity>
