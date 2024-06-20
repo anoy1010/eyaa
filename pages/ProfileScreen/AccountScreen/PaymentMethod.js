@@ -1,8 +1,15 @@
 import { View, Text, TextInput, StyleSheet, Touchable, TouchableOpacity } from "react-native";
 import React from "react";
 import { COLOR, PADDING } from "../../../outils/const";
+import { useNavigation } from "@react-navigation/native";
 
 const PaymentMethod = () => {
+  const navigation = useNavigation();
+
+  const onNextvalidation = () => {
+    navigation.navigate('Withdraw'); // Remplacez 'NextScreen' par l'écran approprié
+  };
+  
   return (
     <View style={styles.container}>
       <View style={styles.section}>
@@ -15,7 +22,7 @@ const PaymentMethod = () => {
           />
         </View>
       </View>
-      <TouchableOpacity style={styles.saveButton}>
+      <TouchableOpacity style={styles.saveButton} onPress={onNextvalidation}>
               <Text style={styles.saveButtonText}>Valider</Text>
             </TouchableOpacity>
     </View>

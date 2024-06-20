@@ -22,8 +22,8 @@ import BecomeDriver from "../ProfileScreen/AccountScreen/BecomeDriver";
 import ConditionUse from "../ProfileScreen/AccountScreen/ConditionUse";
 import Disconnect from "../ProfileScreen/AccountScreen/Disconnect";
 import AddCar from "../ProfileScreen/AccountScreen/AddCar";
-
-
+import Withdraw from "../ProfileScreen/AccountScreen/Withdraw";
+import PublishStep1 from "../PublishScreen/PublishStep1";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -39,30 +39,33 @@ const SearchStack = () => {
     );
   };
   return (
-    <Stack.Navigator 
-    initialRouteName="Search"
-    screenOptions={{ headerShown: false }}
+    <Stack.Navigator
+      initialRouteName="Search"
+      screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name="Search" component={Search} />
       <Stack.Screen name="SearchElement" component={SearchElement} />
-      <Stack.Screen name="Book" component={BookRide} options={{
-            headerShown: true,
-            headerTitle: "Reserver un trajet", 
-            headerTitleAlign: "center",
-            headerTitleStyle: {
-              fontFamily:"Poppins_600SemiBold",
-              fontSize: 24,
-              color: COLOR.orangeColor,
-            },
-            headerLeft: () => <BackIcon />,
-          }}/>
 
-      
+      <Stack.Screen
+        name="Book"
+        component={BookRide}
+        options={{
+          headerShown: true,
+          headerTitle: "Reserver un trajet",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }}
+      />
     </Stack.Navigator>
   );
 };
 
-const SettingStack =() => {
+const PublishStack = () => {
   const BackIcon = () => {
     const navigation = useNavigation();
 
@@ -72,99 +75,159 @@ const SettingStack =() => {
       </TouchableOpacity>
     );
   };
-  return(
-<Stack.Navigator 
-    initialRouteName="Payment"
-    screenOptions={{ headerShown: false }}
+  return (
+    <Stack.Navigator screenOptions={{
+      tabBarActiveTintColor: "#4287f5",
+      headerShown: false,
+    }} initialRouteName="publier">
+      <Stack.Screen name="Publier" component={Publish}  options={{
+          headerShown: true,
+          headerTitle: "Reserver un trajet",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }} />
+      <Stack.Screen name="PublishStep1" component={PublishStep1}  options={{
+          headerShown: true,
+          headerTitle: "Reserver un trajet",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }} />
+    </Stack.Navigator>
+  );
+};
+
+const SettingStack = () => {
+  const BackIcon = () => {
+    const navigation = useNavigation();
+
+    return (
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <AntDesign name="arrowleft" size={32} color={COLOR.orangeColor} />
+      </TouchableOpacity>
+    );
+  };
+  return (
+    <Stack.Navigator
+      initialRouteName="Payment"
+      screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name="Profile" component={Profiles} />
       <Stack.Screen name="Password" component={Password} />
-      <Stack.Screen 
-      name="Payment" 
-      component={PaymentMethod} 
-      options={{
-        headerShown: true,
-        headerTitle: "Mode de paiement", 
-        headerTitleAlign: "center",
-        headerTitleStyle: {
-          fontFamily:"Poppins_600SemiBold",
-          fontSize: 24,
-          color: COLOR.orangeColor,
-        },
-        headerLeft: () => <BackIcon />,
-      }}
-      
+      <Stack.Screen
+        name="Withdraw"
+        component={Withdraw}
+        options={{
+          headerShown: true,
+          headerTitle: "Retirait de solde",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }}
       />
-      <Stack.Screen name="Balance" component={Balance}
-      options={{
-        headerShown: true,
-        headerTitle: "Mon solde", 
-        headerTitleAlign: "center",
-        headerTitleStyle: {
-          fontFamily:"Poppins_600SemiBold",
-          fontSize: 24,
-          color: COLOR.orangeColor,
-        },
-        headerLeft: () => <BackIcon />,
-      }} />
+
+      <Stack.Screen
+        name="Payment"
+        component={PaymentMethod}
+        options={{
+          headerShown: true,
+          headerTitle: "Mode de paiement",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }}
+      />
+      <Stack.Screen
+        name="Balance"
+        component={Balance}
+        options={{
+          headerShown: true,
+          headerTitle: "Mon solde",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }}
+      />
       <Stack.Screen name="publishRide" component={PublishRide} />
-      <Stack.Screen 
-      name="AddCar" 
-      component={AddCar}
-      options={{
-        headerShown: true,
-        headerTitle: "Ajouter un vehicule", 
-        headerTitleAlign: "center",
-        headerTitleStyle: {
-          fontFamily:"Poppins_600SemiBold",
-          fontSize: 24,
-          color: COLOR.orangeColor,
-        },
-        headerLeft: () => <BackIcon />,
-      }}/>  
-      
-      <Stack.Screen 
-      name="BecomeDriver" 
-      component={BecomeDriver}
-      options={{
-        headerShown: true,
-        headerTitle: "Devenir chauffeur", 
-        headerTitleAlign: "center",
-        headerTitleStyle: {
-          fontFamily:"Poppins_600SemiBold",
-          fontSize: 24,
-          color: COLOR.lessGreenColor,
-        },
-        headerLeft: () => <BackIcon />,
-      }}/> 
-  
+      <Stack.Screen
+        name="AddCar"
+        component={AddCar}
+        options={{
+          headerShown: true,
+          headerTitle: "Ajouter un vehicule",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }}
+      />
+
+      <Stack.Screen
+        name="BecomeDriver"
+        component={BecomeDriver}
+        options={{
+          headerShown: true,
+          headerTitle: "Devenir chauffeur",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.lessGreenColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }}
+      />
+
       <Stack.Screen name="ConditionUse" component={ConditionUse} />
       <Stack.Screen name="Disconnect" component={Disconnect} />
 
-
-
-
-      <Stack.Screen name="Book" component={BookRide} options={{
-            headerShown: true,
-            headerTitle: "Reserver un trajet", 
-            headerTitleAlign: "center",
-            headerTitleStyle: {
-              fontFamily:"Poppins_600SemiBold",
-              fontSize: 24,
-              color: COLOR.orangeColor,
-            },
-            headerLeft: () => <BackIcon />,
-          }}/>
-
-      
-    </Stack.Navigator>    
-  )
-}
+      <Stack.Screen
+        name="Book"
+        component={BookRide}
+        options={{
+          headerShown: true,
+          headerTitle: "Reserver un trajet",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
 
 const BottomTabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Profiles"
+      initialRouteName="Publier"
       screenOptions={{
         tabBarActiveTintColor: "#4287f5",
         headerShown: false,
@@ -181,24 +244,10 @@ const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Publier un trajet"
-        component={Publish}
+        name="Publier"
+        component={PublishStack}
         options={{
-          headerTitleAlign: "center",
-          headerTitleStyle: {
-            fontSize: 24,
-            color: COLOR.orangeColor,
-          },
-          headerLeft: () => (
-            <MaterialIcons
-              name="arrow-back"
-              size={24}
-              color={COLOR.orangeColor}
-              style={{ marginLeft: 10 }}
-            />
-          ),
-          headerShown: true, // Afficher le titre de la page
-          tabBarLabel: "Publier",
+        // Afficher le titre de la page
           tabBarIcon: ({ color, size }) => (
             <MaterialIcons
               name="add-circle-outline"
@@ -206,7 +255,6 @@ const BottomTabs = () => {
               size={size}
             />
           ),
-          
         }}
       />
       <Tab.Screen

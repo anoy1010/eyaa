@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { COLOR, PADDING, TEXT_SIZE } from "../../outils/const";
 
 const publishStyles = StyleSheet.create({
-  conatin: {},
+  contain: {},
   container: {
     paddingHorizontal: PADDING.horizontal,
     width:"100%",
