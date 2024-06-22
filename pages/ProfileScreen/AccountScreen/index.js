@@ -16,6 +16,9 @@ const Account = () => {
   const onNextPayment = () => {
     navigation.navigate('Payment'); // Remplacez 'NextScreen' par l'écran approprié
   };
+  const onNextPublishRide = () => {
+    navigation.navigate('PublishRide'); // Remplacez 'NextScreen' par l'écran approprié
+  };
   const onNextBalance = () => {
     navigation.navigate('Balance'); // Remplacez 'NextScreen' par l'écran approprié
   };
@@ -37,7 +40,7 @@ const Account = () => {
           <Text style={accountStyles.accountText}>Mon solde</Text>
           <AntDesignIcon name='right' size={20} color="#898989'"/>
         </TouchableOpacity>
-        <TouchableOpacity style={accountStyles.accountTouch}>
+        <TouchableOpacity style={accountStyles.accountTouch}onPress={onNextPublishRide}>
           <Text style={accountStyles.accountText}>Mes tajets publiés</Text>
           <AntDesignIcon name='right' size={20} color="#898989'"/>
         </TouchableOpacity>

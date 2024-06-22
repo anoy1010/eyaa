@@ -1,27 +1,24 @@
 import {
   View,
   Text,
-  Image,
   ImageBackground,
   TextInput,
   Platform,
   TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
-import searchStyles from "../style";
+import searchStyles from "../style"; // Assurez-vous que ce chemin est correct
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { Button } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
-import DateTimePicker from "@react-native-community/datetimepicker";
-import { PADDING } from "../../outils/const";
+
 import { useNavigation } from "@react-navigation/native";
+import DateTimePicker from "react-native-modal-datetime-picker";
 
 const Search = () => {
   const navigation = useNavigation();
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
-
 
   const onNextPage = () => {
     navigation.navigate('SearchElement'); // Remplacez 'NextScreen' par l'écran approprié
@@ -36,9 +33,9 @@ const Search = () => {
   const showDatepicker = () => {
     setShow(true);
   };
-  const [text, setText] = React.useState("");
+
   return (
-    <View style={searchStyles.Container}>
+    <View style={searchStyles.container}>
       <View>
         <Text style={searchStyles.title}>
           Un vaste choix de trajets à petit prix
@@ -51,13 +48,12 @@ const Search = () => {
       <View style={searchStyles.inputContainer}>
         <View
           style={{
-            flex:1,
+            flex: 1,
             width: "100%",
             paddingBottom: 12,
-            borderTopLeftRadius:30,
-            borderTopRightRadius:30,
-            alignItems:'center',
-          
+            borderTopLeftRadius: 30,
+            borderTopRightRadius: 30,
+            alignItems: "center",
           }}
         >
           <SafeAreaView style={searchStyles.fieldContain}>
@@ -65,7 +61,7 @@ const Search = () => {
             <TextInput
               style={searchStyles.input}
               placeholder="Départ"
-              keyboardType="text"
+              keyboardType="default"
               color="black"
               placeholderTextColor="black"
             />
@@ -122,12 +118,8 @@ const Search = () => {
             />
           </SafeAreaView>
           <TouchableOpacity style={searchStyles.buttonSearch} onPress={onNextPage}>
-          <Text style={searchStyles.buttonText}>Rechercher</Text>
-        </TouchableOpacity>
-        </View>
-        
-        <View>
-          
+            <Text style={searchStyles.buttonText}>Rechercher</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

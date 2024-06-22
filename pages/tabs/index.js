@@ -24,9 +24,52 @@ import Disconnect from "../ProfileScreen/AccountScreen/Disconnect";
 import AddCar from "../ProfileScreen/AccountScreen/AddCar";
 import Withdraw from "../ProfileScreen/AccountScreen/Withdraw";
 import PublishStep1 from "../PublishScreen/PublishStep1";
+import PublishStep2 from "../PublishScreen/PublishStep2";
+import PublishStep3 from "../PublishScreen/PublishStep3";
+import RouteStep1 from "../RouteScreen/RouteStep1";
+import RouteStep2 from "../RouteScreen/RouteStep2";
+import ReserveView from "../ProfileScreen/AccountScreen/ReserveView";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+
+const RouteScreenStack = () => {
+  const BackIcon = () => {
+    const navigation = useNavigation();
+
+    return (
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <AntDesign name="arrowleft" size={32} color={COLOR.orangeColor} />
+      </TouchableOpacity>
+    );
+  };
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="RouteStep1" component={RouteStep1} options={{
+          headerShown: true,
+          headerTitle: "Mes trajets réservés",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }} />
+        <Stack.Screen name="RouteStep2" component={RouteStep2} options={{
+          headerShown: true,
+          headerTitle: "Mes trajets réservés",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }} />
+    </Stack.Navigator>
+  );
+}
 
 const SearchStack = () => {
   const BackIcon = () => {
@@ -93,7 +136,29 @@ const PublishStack = () => {
         }} />
       <Stack.Screen name="PublishStep1" component={PublishStep1}  options={{
           headerShown: true,
-          headerTitle: "Reserver un trajet",
+          headerTitle: "Publier un trajet",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }} />
+        <Stack.Screen name="PublishStep2" component={PublishStep2}  options={{
+          headerShown: true,
+          headerTitle: "Publier un trajett",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }} />
+        <Stack.Screen name="PublishStep3" component={PublishStep3}  options={{
+          headerShown: true,
+          headerTitle: "Publier un trajet",
           headerTitleAlign: "center",
           headerTitleStyle: {
             fontFamily: "Poppins_600SemiBold",
@@ -118,7 +183,7 @@ const SettingStack = () => {
   };
   return (
     <Stack.Navigator
-      initialRouteName="Payment"
+      initialRouteName="Profile"
       screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name="Profile" component={Profiles} />
@@ -169,7 +234,32 @@ const SettingStack = () => {
           headerLeft: () => <BackIcon />,
         }}
       />
-      <Stack.Screen name="publishRide" component={PublishRide} />
+      <Stack.Screen
+        name="ReserveView"
+        component={ReserveView}
+        options={{
+          headerShown: true,
+          headerTitle: "Trajets publiés",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }}
+      />
+      <Stack.Screen name="PublishRide" component={PublishRide} options={{
+          headerShown: true,
+          headerTitle: "Trajets publiés",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 24,
+            color: COLOR.orangeColor,
+          },
+          headerLeft: () => <BackIcon />,
+        }}/>
       <Stack.Screen
         name="AddCar"
         component={AddCar}
@@ -259,7 +349,7 @@ const BottomTabs = () => {
       />
       <Tab.Screen
         name="Route"
-        component={RouteScreen}
+        component={RouteScreenStack}
         options={{
           tabBarLabel: "Trajet",
           tabBarIcon: ({ color, size }) => (

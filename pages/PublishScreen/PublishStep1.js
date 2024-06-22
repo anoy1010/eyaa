@@ -2,10 +2,18 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { COLOR, PADDING } from "../../outils/const";
 import { Checkbox } from "react-native-paper";
+import ButtonNext from "../../comps/buttonNext";
+import { useNavigation } from "@react-navigation/native";
+
 
 const PublishStep1 = () => {
     const [checkedA, setCheckedA] = useState(false); // State for Point A checkbox
     const [checkedB, setCheckedB] = useState(false); // State for Point B checkbox
+
+    const navigation = useNavigation();
+    const onNextPage = () => {
+      navigation.navigate("PublishStep2"); // Remplacez 'NextScreen' par l'écran approprié
+    };
 
   return (
     <View style={styles.container}>
@@ -33,6 +41,7 @@ const PublishStep1 = () => {
       <TouchableOpacity style={styles.btn}>
         <Text style={styles.btntext}>Ajoutez des étapes</Text>
       </TouchableOpacity>
+      <ButtonNext onPress={onNextPage}/>
     </View>
   );
 };
